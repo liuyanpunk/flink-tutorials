@@ -45,7 +45,7 @@ public class KafkaToHDFSAvroJob {
 
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-		KafkaDeserializationSchema<Message> schema = SchemaRegistryDeserializationSchema
+		KafkaDeserializationSchema<Message> schema = ClouderaRegistryKafkaDeserializationSchema
 				.builder(Message.class)
 				.setConfig(Utils.readSchemaRegistryProperties(params))
 				.build();
