@@ -45,7 +45,7 @@ public class AvroDataGeneratorJob {
 		ParameterTool params = Utils.parseArgs(args);
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-		KafkaSerializationSchema<Message> schema = SchemaRegistrySerializationSchema.<Message>
+		KafkaSerializationSchema<Message> schema = ClouderaRegistryKafkaSerializationSchema.<Message>
 				builder(params.getRequired(K_KAFKA_TOPIC))
 				.setConfig(Utils.readSchemaRegistryProperties(params))
 				.setKey(Message::getId)
